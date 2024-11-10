@@ -14,18 +14,19 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 const NAV_MENU = [
   {
-    name: "Page",
+    name: "صفحه اصلی",
     icon: RectangleStackIcon,
   },
   {
-    name: "Account",
+    name: "حساب کاربری",
     icon: UserCircleIcon,
   },
   {
-    name: "Docs",
+    name: "مستندات",
     icon: CommandLineIcon,
     href: "https://www.material-tailwind.com/docs/react/installation",
   },
@@ -72,12 +73,11 @@ export function Navbar() {
       <div className="mx-auto container">
         <MTNavbar
           blurred
-          color="white"
-          className="z-50 mt-6 relative border-0 pr-3 py-3 pl-6"
+          className="z-50 mt-6 relative border-0 pr-3 py-3 pl-6 bg-blue-gray-00"
         >
           <div className="flex items-center justify-between">
             <Typography color="blue-gray" className="text-lg font-bold">
-              Material Tailwind
+              CRM آرین و آرش
             </Typography>
             <ul className="ml-10 hidden items-center gap-8 lg:flex">
               {NAV_MENU.map(({ name, icon: Icon, href }) => (
@@ -88,12 +88,18 @@ export function Navbar() {
               ))}
             </ul>
             <div className="hidden items-center gap-4 lg:flex">
-              <Button variant="text">Log in</Button>
+              <Link href="/signin">
+                <Button className="bg-[#47564A] text-blue-gray-100 rounded-full outline-none focus:scale-110 hover:scale-110">
+                  ورود
+                </Button>
+              </Link>
               <a
                 href="https://www.material-tailwind.com/blocks"
                 target="_blank"
               >
-                <Button color="gray">Blocks</Button>
+                <Button className="rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 bg-[#FD6239]">
+                  دریافت نمایندگی
+                </Button>
               </a>
             </div>
             <IconButton
