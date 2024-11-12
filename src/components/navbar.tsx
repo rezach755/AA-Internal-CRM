@@ -6,29 +6,46 @@ import {
   IconButton,
   Typography,
 } from "@material-tailwind/react";
-import {
-  RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/solid";
+// import {
+//   RectangleStackIcon,
+//   UserCircleIcon,
+//   CommandLineIcon,
+//   Squares2X2Icon,
+//   XMarkIcon,
+//   Bars3Icon,
+// } from "@heroicons/react/24/solid";
 import Link from "next/link";
+
+const additionalProps = {
+  placeholder: "",
+  onPointerEnterCapture: () => {},
+  onPointerLeaveCapture: () => {},
+};
 
 const NAV_MENU = [
   {
-    name: "صفحه اصلی",
-    icon: RectangleStackIcon,
+    name: "خانه",
+    hash: "#home",
   },
   {
-    name: "حساب کاربری",
-    icon: UserCircleIcon,
+    name: "درباره ما",
+    hash: "#about",
   },
   {
-    name: "مستندات",
-    icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
+    name: "پروژه ها",
+    hash: "#projects",
+  },
+  {
+    name: "تیم آرش و آرین",
+    hash: "#skills",
+  },
+  {
+    name: "فرصت ها",
+    hash: "#experience",
+  },
+  {
+    name: "تماس با ما",
+    hash: "#contact",
   },
 ];
 
@@ -41,12 +58,12 @@ function NavItem({ children, href }: NavItemProps) {
   return (
     <li>
       <Typography
+        {...additionalProps}
         as="a"
         href={href || "#"}
         target={href ? "_blank" : "_self"}
         variant="paragraph"
-        color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900"
+        className="flex items-center gap-2 font-medium text-[#062650] "
       >
         {children}
       </Typography>
@@ -72,39 +89,44 @@ export function Navbar() {
     <div className="px-10 sticky top-4 z-50">
       <div className="mx-auto container">
         <MTNavbar
+          {...additionalProps}
           blurred
-          className="z-50 mt-6 relative border-0 pr-3 py-3 pl-6 bg-blue-gray-00"
+          placeholder=""
+          className="z-50 mt-6 relative border-0 pr-3 py-3 pl-6 bg-[#87B8CE]"
         >
           <div className="flex items-center justify-between">
-            <Typography color="blue-gray" className="text-lg font-bold">
-              CRM آرین و آرش
+            <Typography {...additionalProps} className="text-lg font-bold text-[#062650]">
+              مدیریت پیشرو هوشمند آرش و آرین
             </Typography>
             <ul className="ml-10 hidden items-center gap-8 lg:flex">
-              {NAV_MENU.map(({ name, icon: Icon, href }) => (
-                <NavItem key={name} href={href}>
-                  <Icon className="h-5 w-5" />
+              {NAV_MENU.map(({ name }) => (
+                <NavItem key={name} >
+                  {/* // <Icon className="h-5 w-5" /> */}
                   {name}
                 </NavItem>
               ))}
             </ul>
             <div className="hidden items-center gap-4 lg:flex">
               <Link href="/signin">
-                <Button className="bg-[#47564A] text-blue-gray-100 rounded-full outline-none focus:scale-110 hover:scale-110">
+                <Button
+                  {...additionalProps}
+                  className="bg-white text-[#062650] rounded-full outline-none focus:scale-110 hover:scale-110"
+                >
                   ورود
                 </Button>
               </Link>
-              <a
-                href="https://www.material-tailwind.com/blocks"
-                target="_blank"
-              >
-                <Button className="rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 bg-[#FD6239]">
+              <Link href="/contactus">
+                <Button
+                  {...additionalProps}
+                  className="rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 bg-[#062650]"
+                >
                   دریافت نمایندگی
                 </Button>
-              </a>
+              </Link>
             </div>
-            <IconButton
+            {/* <IconButton
               variant="text"
-              color="gray"
+              color="red"
               onClick={handleOpen}
               className="ml-auto inline-block lg:hidden"
             >
@@ -113,9 +135,9 @@ export function Navbar() {
               ) : (
                 <Bars3Icon strokeWidth={2} className="h-6 w-6" />
               )}
-            </IconButton>
+            </IconButton> */}
           </div>
-          <Collapse open={open}>
+          {/* <Collapse open={open}>
             <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
               <ul className="flex flex-col gap-4">
                 {NAV_MENU.map(({ name, icon: Icon, href }) => (
@@ -124,18 +146,18 @@ export function Navbar() {
                     {name}
                   </NavItem>
                 ))}
-              </ul>
-              <div className="mt-6 mb-4 flex items-center gap-4">
+              </ul> */}
+          {/* <div className="mt-6 mb-4 flex items-center gap-4">
                 <Button variant="text">Log in</Button>
                 <a
                   href="https://www.material-tailwind.com/blocks"
                   target="_blank"
                 >
-                  <Button color="gray">blocks</Button>
+                  <Button color="red">blocks</Button>
                 </a>
-              </div>
-            </div>
-          </Collapse>
+              </div> */}
+          {/* </div>
+          </Collapse> */}
         </MTNavbar>
       </div>
     </div>

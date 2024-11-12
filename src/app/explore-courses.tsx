@@ -48,14 +48,21 @@ const COURSES = [
   },
 ];
 
+const additionalProps = {
+  placeholder: "",
+  onPointerEnterCapture: () => {},
+  onPointerLeaveCapture: () => {},
+};
+
 export function ExploreCourses() {
   return (
-    <section className="px-8">
+    <section className="px-8 bg-white">
       <div className="container mx-auto mb-24 text-center">
-        <Typography variant="h2" color="blue-gray">
+        <Typography {...additionalProps} variant="h2" color="blue-gray">
           Explore Courses
         </Typography>
         <Typography
+          {...additionalProps}
           variant="lead"
           className="mt-2 mx-auto w-full px-4 !text-gray-500 lg:w-6/12 lg:px-8"
         >

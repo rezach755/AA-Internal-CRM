@@ -3,6 +3,11 @@ import React from "react";
 import FeedbackCard from "@/components/feedback-card";
 import { Typography } from "@material-tailwind/react";
 
+const additionalProps = {
+  placeholder: "",
+  onPointerEnterCapture: () => {},
+  onPointerLeaveCapture: () => {},
+};
 
 const FEEDBACKS = [
   {
@@ -30,13 +35,19 @@ const FEEDBACKS = [
 
 export function StudentsFeedback() {
   return (
-    <section className="px-8 py-36">
+    <section className="px-8 py-36 bg-[#87B8CE]">
       <div className="container mx-auto">
         <div className="mb-16 flex flex-col items-center w-full">
-          <Typography variant="h2" color="blue-gray" className="mb-2">
+          <Typography
+            {...additionalProps}
+            variant="h2"
+            color="blue-gray"
+            className="mb-2"
+          >
             What Our Students Are Saying
           </Typography>
           <Typography
+            {...additionalProps}
             variant="lead"
             className="mb-10 max-w-3xl lg:text-center !text-gray-500"
           >
@@ -54,6 +65,5 @@ export function StudentsFeedback() {
     </section>
   );
 }
-
 
 export default StudentsFeedback;

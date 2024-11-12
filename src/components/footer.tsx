@@ -19,7 +19,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="px-8 pt-24 pb-8">
+    <footer className="px-8 pt-24 pb-8 bg-[#87B8CE]">
       <div className="container max-w-6xl flex flex-col mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 !w-full ">
           <div className="flex col-span-2 items-center gap-10 mb-10 lg:mb-0 md:gap-36">

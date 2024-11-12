@@ -7,14 +7,33 @@ interface StatsCardProps {
   title: string;
 }
 
+const additionalProps = {
+  placeholder: "",
+  onPointerEnterCapture: () => {},
+  onPointerLeaveCapture: () => {},
+};
+
 export function StatsCard({ icon: Icon, count, title }: StatsCardProps) {
   return (
-    <Card color="transparent" shadow={false} className="items-center">
-      <Icon className="h-7 w-7 text-gray-900" />
-      <Typography variant="h1" color="blue-gray" className="mb-2 mt-4 text-5xl">
+    <Card
+      {...additionalProps}
+      color="transparent"
+      shadow={false}
+      className="items-center"
+    >
+      <Icon className="h-7 w-7 text-[#062650]" />
+      <Typography
+        {...additionalProps}
+        variant="h1"
+        className="mb-2 mt-4 text-5xl text-[#062650]"
+      >
         {count}
       </Typography>
-      <Typography variant="h6" className="mb-2 font-normal text-blue-gray-500">
+      <Typography
+        {...additionalProps}
+        variant="h6"
+        className="mb-2 font-normal text-[#062650]"
+      >
         {title}
       </Typography>
     </Card>
