@@ -57,7 +57,7 @@ interface NavItemProps {
   href?: string;
 }
 
-function NavItem({}: NavItemProps) {
+function NavItem() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
   return (
@@ -133,14 +133,15 @@ export function Navbar() {
             </Typography>
             {/* <ul className="ml-10 hidden items-center gap-8 lg:flex"> */}
             {/* {NAV_MENU.map(({ name }) => ( */}
-            <NavItem key={name}>{name}</NavItem>
+            {/* <NavItem>{name}</NavItem> */}
+            {NavItem()}
             {/* ))} */}
             {/* </ul> */}
             <div className="hidden items-center gap-4 lg:flex">
               <Link href="/Login">
                 <Button
                   {...additionalProps}
-                  className="bg-white text-[#062650] text-md rounded-full outline-none focus:scale-110 hover:scale-110"
+                  className="bg-white text-[#062650] text-md rounded-full outline-none  hover:scale-110"
                 >
                   ورود
                 </Button>
@@ -148,7 +149,7 @@ export function Navbar() {
               <Link href="/contactus">
                 <Button
                   {...additionalProps}
-                  className="rounded-full text-md outline-none focus:scale-110 hover:scale-110 active:scale-105 bg-[#062650]"
+                  className="rounded-full text-md outline-none  hover:scale-110 active:scale-105 bg-[#062650]"
                 >
                   دریافت نمایندگی
                 </Button>
