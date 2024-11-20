@@ -1,39 +1,76 @@
+import { useSectionInView } from "@/lib/hooks";
 import { Typography, Button, Input } from "@material-tailwind/react";
+const additionalProps = {
+  placeholder: "",
+  // onPointerEnterCapture: () => {},
+  // onPointerLeaveCapture: () => {},
+};
 
 const LINKS = [
   {
-    title: "Company",
-    items: ["About Us", "Careers", "Premium Tools", "Blog"],
+    title: "دسترسی سریع",
+    items: ["خانه", "فروشگاه ها", "درباره آیکارت", "پروپوزال"],
   },
   {
-    title: "Pages",
-    items: ["Login", "Register", "Add List", "Contact"],
+    title: "پروژه های مرتبط",
+    items: [
+      "شبکه ملی ساماندهی شمس",
+      "خدمات ویژه شهروندی",
+      "اعتبارسنجی",
+      "سیپ توکن ها",
+      "مرکز تماس",
+      "نمایندگی ها",
+      "توکن Gold Card",
+    ],
   },
   {
-    title: "Legal",
-    items: ["Terms", "Privacy", "Team", "About Us"],
+    title: "ارتباط با آیکارت",
+    items: [
+      "شیراز, خیابان فلسطین, نبش فلسطین ۵, ساختمان آیکارت",
+      "پشتیبانی :۱۷۷۰ ۹۱۳۰ ۰۷۱_۱۷۷۰ ۹۱۳۰ ۰۲۱",
+      "info@icarts.ir",
+    ],
+  },
+];
+
+const content = [
+  {
+    title: "اشتراک بگیرید",
+    a: "برای اطلاع از جدیدترین اخبار در خبرنامه آیکارت عضو شوید.",
+    email: "ایمیل شما",
+    button: "تایید",
   },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
+  const { ref } = useSectionInView("تماس با ما");
   return (
-    <footer className="px-8 pt-24 pb-8 bg-[#87B8CE]">
+    <footer
+      ref={ref}
+      id="contact"
+      className="px-8 pt-24 pb-8 bg-[#87B8CE] !text-red-600"
+    >
       <div className="container max-w-6xl flex flex-col mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 !w-full ">
           <div className="flex col-span-2 items-center gap-10 mb-10 lg:mb-0 md:gap-36">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
-                <Typography variant="h6" color="blue-gray" className="mb-4">
+                <Typography
+                  {...additionalProps}
+                  variant="h6"
+                  className="mb-4 !text-[#062650] whitespace-nowrap"
+                >
                   {title}
                 </Typography>
                 {items.map((link) => (
                   <li key={link}>
                     <Typography
+                      {...additionalProps}
                       as="a"
                       href="#"
-                      className="py-1 font-normal !text-gray-700 transition-colors hover:!text-gray-900"
+                      className="py-1 font-normal !text-[#062650] transition-colors hover:!text-gray-900"
                     >
                       {link}
                     </Typography>
@@ -42,50 +79,61 @@ export function Footer() {
               </ul>
             ))}
           </div>
-          <div className="">
-            <Typography variant="h6" className="mb-3 text-left">
-              Subscribe
+          <div className="pr-24 w-full">
+            <Typography
+              {...additionalProps}
+              variant="h6"
+              className="mb-3  text-right !text-[#062650]"
+            >
+              {content[0].title}
             </Typography>
-            <Typography className="!text-gray-500 font-normal mb-4 text-base">
-              Get access to subscriber exclusive deals and be the first who gets
-              informed about fresh sales.
+            <Typography
+              {...additionalProps}
+              className="!text-[#062650] font-normal mb-4 text-base"
+            >
+              {content[0].a}
             </Typography>
-            <Typography variant="small" className="font-medium mb-2 text-left">
-              Your Email
-            </Typography>
+            {/* <Typography
+              {...additionalProps}
+              variant="small"
+              className="font-medium mb-2 text-left !text-[#062650]"
+            ></Typography> */}
             <div className="flex mb-3 flex-col lg:flex-row items-start gap-4">
               <div className="w-full">
                 {/* @ts-ignore */}
-                <Input label="Email" color="gray" />
-                <Typography className="font-medium mt-3 !text-sm !text-gray-500 text-left">
-                  I agree the{" "}
+                <Input label="ایمیل" color="gray-blue" />
+                <Typography
+                  {...additionalProps}
+                  className="font-medium mt-3 !text-sm !text-[#062650] text-right"
+                >
                   <a
                     href="#"
-                    className="font-bold underline hover:text-gray-900 transition-colors"
+                    className="font-bold underline hover:!text-[#062650] transition-colors"
                   >
-                    Terms and Conditions{" "}
+                    قوانین و مقرارت را مطالعه کردم و می پذیرم{" "}
                   </a>
                 </Typography>
               </div>
-              <Button color="gray" className="w-full lg:w-fit" size="md">
-                button
+              <Button
+                {...additionalProps}
+                className="w-full lg:w-fit bg-[#062650]"
+                size="lg"
+              >
+                {content[0].button}
               </Button>
             </div>
           </div>
         </div>
         <Typography
-          color="blue-gray"
-          className="md:text-center mt-16 font-normal !text-gray-700"
+          {...additionalProps}
+          className="md:text-center mt-16 font-normal !text-[#062650]"
         >
-          &copy; {CURRENT_YEAR} Made with{" "}
-          <a href="https://www.material-tailwind.com" target="_blank">
-            Material Tailwind
-          </a>{" "}
-          by{" "}
+          کلیه حقوق مادی و معنوی متعلق به
           <a href="https://www.creative-tim.com" target="_blank">
-            Creative Tim
+            <span />
+            آیکارت&copy;
           </a>
-          .
+          میباشد.
         </Typography>
       </div>
     </footer>
