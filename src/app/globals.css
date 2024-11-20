@@ -20,14 +20,15 @@
   font-weight: normal;
   font-style: normal;
 }
-:root  {
+:root {
   --font-yekan: "BYekan";
   --font-yekan-bold: "BYekanBold";
 
-  --main-orange: #FD6239;
+  --main-orange: #fd6239;
 }
 body {
-  font-family: var(--font-yekan), ;
+  color: #062650;
+  font-family: var(--font-yekan) !important;
 }
 .font-bold {
   font-family: var(--font-yekan-bold);
