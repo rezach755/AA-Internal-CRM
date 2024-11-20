@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html dir="rtl" lang="fa" className={`${yekan.variable}`}>
+    <html dir="rtl" lang="fa" className={`${yekan.variable} !scroll-smooth `}>
       <head>
         <script
           defer
