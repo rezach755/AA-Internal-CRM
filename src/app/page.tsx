@@ -2,28 +2,25 @@
 import { Navbar, Footer } from "@/components";
 
 // sections
-import Hero from "./hero";
-import OutImpressiveStats from "./out-impressive-stats";
-import CoursesCategories from "./courses-categories";
-import ExploreCourses from "./explore-courses";
-import Testimonial from "./testimonial";
-import Events from "./events";
-import StudentsFeedback from "./students-feedback";
-import TrustedCompany from "./trusted-companies";
+import Hero from "../components/hero";
+import OutImpressiveStats from "../components/out-impressive-stats";
+import ContactUs from "../components/about-us";
+import RepresentationRequestForm from "../components/representation-requestform";
+import Brands from "../components/projects";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 export default function Campaign() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <OutImpressiveStats />
-      <CoursesCategories />
-      <ExploreCourses />
-      <Testimonial />
-      <Events />
-      <StudentsFeedback />
-      <TrustedCompany />
-      <Footer />
+      <ActiveSectionContextProvider>
+        <Navbar />
+        <Hero />
+        <OutImpressiveStats />
+        <Brands />
+        <RepresentationRequestForm />
+        <ContactUs />
+        <Footer />
+      </ActiveSectionContextProvider>
     </>
   );
 }
