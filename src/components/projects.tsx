@@ -11,7 +11,7 @@ const additionalProps = {
   // onPointerLeaveCapture: () => {},
 };
 
-const COMPANIES = ["icart", "isip", "iwallet"];
+const COMPANIES = ["icarts", "isip", "iwallet"];
 
 function Brands() {
   const { ref } = useSectionInView("پروژه ها");
@@ -36,14 +36,17 @@ function Brands() {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-10">
           {COMPANIES.map((logo, key) => (
-            <Image
-              width={600}
-              height={600}
-              key={key}
-              src={`/logos/${logo}.png`}
-              alt="{logo}"
-              className="w-40 grayscale opacity-75"
-            />
+            <div key={key} className="text-center w-40">
+              <Image
+                width={600}
+                height={600}
+                key={key}
+                src={`/logos/${logo}.svg`}
+                alt="{logo}"
+                className="w-40 px-10"
+              />
+              <p className="mt-2 !text-[#062650] text-lg justify-center items-center">{logo}</p>
+            </div>
           ))}
         </div>
       </div>
