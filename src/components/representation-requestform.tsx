@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { Textarea } from "@material-tailwind/react";
+// import { Textarea } from "@material-tailwind/react";
 import Input from "@/components/input";
 import { useSectionInView } from "@/lib/hooks";
+import { Textarea } from "./ui/textarea";
 
 // const additionalProps = {
 //   placeholder: "",
@@ -12,24 +13,19 @@ import { useSectionInView } from "@/lib/hooks";
 
 const inputLabel = [
   {
+    titleFaName: "نام درخواست کننده/نام شرکت",
+    titleEnName: "b",
+    id: 2,
+  },
+  {
     titleFaName: "حوزه کاری",
     titleEnName: "a",
     id: 1,
   },
   {
-    titleFaName: "نام شرکت",
-    titleEnName: "b",
-    id: 2,
-  },
-  {
     titleFaName: "آدرس شرکت",
     titleEnName: "c",
     id: 3,
-  },
-  {
-    titleFaName: "نام درخواست کننده",
-    titleEnName: "d",
-    id: 4,
   },
   {
     titleFaName: "شماره تماس",
@@ -96,11 +92,8 @@ export function RepresentationRequestForm() {
                       />
                     ))}
                     <Textarea
-                      variant="outlined"
-                      color="#062650"
-                      label="پیام و دلایل تمایل به نمایندگی"
-                      className="text-[#062650] border-[#062650] placeholder:!text-[#4b5581] label:
-                      text-red"
+                      placeholder="توضیحات"
+                      className="w-full h-32 text-[#062650] border border-[#062650] rounded-xl py-2 mt-10 bg-[#87B8CE] active:!border active:!border-[#062650]  placeholder:text-[#4b5581] resize-none"
                     />
                   </div>
 
