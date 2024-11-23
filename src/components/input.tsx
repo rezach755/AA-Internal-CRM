@@ -4,12 +4,12 @@ const Input = ({
   parentClassName,
   inputClassName,
   label,
-  type = "text"
+  type = "text",
 }: {
   parentClassName?: string;
   label: string;
   inputClassName: string;
-  type?: string
+  type?: string;
 }) => {
   return (
     <div className={clsx("w-full mb-5", parentClassName)}>
@@ -22,7 +22,7 @@ const Input = ({
       <input
         type={type}
         className={clsx(
-          "w-full bg-transparent placeholder:text-[#4b5581] text-slate-700 text-sm border border-[#062650] rounded-full px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow",
+          "w-full bg-transparent placeholder:text-[#4b5581] text-slate-700 text-sm border border-[#062650] rounded-xl px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow",
           { inputClassName }
         )}
         placeholder={label}
