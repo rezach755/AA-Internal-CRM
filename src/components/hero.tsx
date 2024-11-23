@@ -90,7 +90,7 @@ function Hero() {
             </div>
             <div className="mb-8 flex justify-center gap-4 lg:justify-start">
               <Link
-                href="#contact"
+                href="#representation"
                 className="group bg-[#062650] text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none  hover:scale-110 hover:bg-gray-950 active:scale-105 transition-transform transform "
                 // onClick={() => {
                 //   setActiveSection("Contact");
