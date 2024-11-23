@@ -1,5 +1,6 @@
 import { useSectionInView } from "@/lib/hooks";
 import { Typography, Button, Input } from "@material-tailwind/react";
+import Link from "next/link";
 const additionalProps = {
   placeholder: "",
   // onPointerEnterCapture: () => {},
@@ -54,7 +55,7 @@ export function Footer() {
     >
       <div className="container max-w-6xl flex flex-col mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 !w-full ">
-          <div className="flex col-span-2 items-center gap-10 mb-10 lg:mb-0 md:gap-36">
+          <div className="flex col-span-2 gap-10 mb-10 lg:mb-0 md:gap-36">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
@@ -98,43 +99,46 @@ export function Footer() {
               variant="small"
               className="font-medium mb-2 text-left !text-[#062650]"
             ></Typography> */}
-            <div className="flex mb-3 flex-col lg:flex-row items-start gap-4">
-              <div className="w-full">
+            <div className="flex mb-3 flex-col items-start gap-4">
+              <div className="w-full flex">
                 {/* @ts-ignore */}
-                <Input label="ایمیل" color="gray-blue" />
-                <Typography
+                <input
+                  placeholder="ایمیل"
+                  color="blue"
+                  className="border rounded-xl border-[#062650] placeholder-[#062650] placeholder:pr-2 "
+                />
+                {/* <Typography
                   {...additionalProps}
                   className="font-medium mt-3 !text-sm !text-[#062650] text-right"
+                ></Typography> */}
+                <Button
+                  {...additionalProps}
+                  className="w-full mx-3 lg:w-fit bg-[#062650]"
+                  size="md"
                 >
-                  <a
-                    href="#"
-                    className="font-bold underline hover:!text-[#062650] transition-colors"
-                  >
-                    قوانین و مقرارت را مطالعه کردم و می پذیرم{" "}
-                  </a>
-                </Typography>
+                  {content[0].button}
+                </Button>
               </div>
-              <Button
-                {...additionalProps}
-                className="w-full lg:w-fit bg-[#062650]"
-                size="lg"
+              <a
+                href="#"
+                className="w-full font-bold !text-[#062650] underline hover:!text-[#062650] transition-colors"
               >
-                {content[0].button}
-              </Button>
+                قوانین و مقرارت را مطالعه کردم و می پذیرم{" "}
+              </a>
             </div>
           </div>
         </div>
-        <Typography
-          {...additionalProps}
-          className="md:text-center mt-16 font-normal !text-[#062650]"
-        >
-          کلیه حقوق مادی و معنوی متعلق به
-          <a href="https://www.creative-tim.com" target="_blank">
-            <span />
-            آیکارت&copy;
-          </a>
-          میباشد.
-        </Typography>
+        <div className="md:text-center mt-16 font-normal !text-[#062650] flex gap-1 justify-center w-full">
+          <span>کلیه حقوق مادی و معنوی متعلق به</span>
+          <Link
+            className=""
+            href="https://www.creative-tim.com"
+            target="_blank"
+          >
+            &copy; آیکارت
+          </Link>
+          <span>میباشد.</span>
+        </div>
       </div>
     </footer>
   );
