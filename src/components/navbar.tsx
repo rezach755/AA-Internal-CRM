@@ -146,7 +146,7 @@ export function Navbar() {
                   ورود
                 </Button>
               </Link>
-              <Link href="/contactus">
+              <Link href="#representation">
                 <Button
                   {...additionalProps}
                   className="rounded-full text-md outline-none  hover:scale-110 active:scale-105 bg-[#062650]"
